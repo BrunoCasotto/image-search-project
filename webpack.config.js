@@ -4,9 +4,12 @@ let path = require('path')
 require('babel-loader')
 
 module.exports = {
-  entry: path.join(__dirname, 'src'),
+  entry: {
+    "index": path.join(__dirname, 'src'),
+    "example": path.join(__dirname, 'src', 'example.js')
+  },
   output: {
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   watch: true,
   mode: 'development',
