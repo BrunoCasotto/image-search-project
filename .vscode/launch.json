@@ -6,7 +6,7 @@
   "configurations": [
   
     {
-      "type": "node",
+      "type": "nodemon",
       "request": "launch",
       "name": "Launch Program",
       "program": "${workspaceFolder}/dist/example.js"
