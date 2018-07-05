@@ -1,4 +1,4 @@
-import Core from './'
+const Core = require('./')
 
 let core = new Core({delay: 500})
 
