@@ -1,2 +1,2 @@
-# elevador-core
-Implementação da lógica de um elevador em javascript
+# webpack-javascript-babel
+configuration of javascript ES6
