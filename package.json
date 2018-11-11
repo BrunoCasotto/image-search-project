@@ -25,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/BrunoCasotto/elevador-core/issues"
   },
-  "homepage": "https://github.com/BrunoCasotto/elevador-core#readme"
+  "homepage": "https://github.com/BrunoCasotto/elevador-core#readme",
+  "dependencies": {
+    "@google-cloud/automl": "^0.1.2",
+    "express": "^4.16.4",
+    "nunjucks": "^3.1.4"
+  }
 }

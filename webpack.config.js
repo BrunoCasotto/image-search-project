@@ -5,8 +5,7 @@ require('babel-loader')
 
 module.exports = {
   entry: {
-    "index": path.join(__dirname, 'src'),
-    "example": path.join(__dirname, 'src', 'example.js')
+    "index": path.join(__dirname, 'resources')
   },
   output: {
     filename: "[name].js"
