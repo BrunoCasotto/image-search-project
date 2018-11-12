@@ -1,15 +1,15 @@
 <template>
   <div class="image-search">
-    <search-input></search-input>
+    <camera></camera>
   </div>
 </template>
 
 <script>
-  import SearchInput from '_components/search-input.vue';
+  import Camera from '_components/camera.vue';
 
   export default {
     components: {
-      SearchInput
+      Camera
     }
   }
 </script>

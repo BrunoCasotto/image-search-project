@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const webpack = require('webpack');
 
-const imagePaths  = getObjectPaths(`${__dirname}/resources/**/*.jpg*`);
+const imagePaths  = getObjectPaths(`${__dirname}/resources/images/*.**`);
 const entryImgObj = toObject(imagePaths);
 
 const entryObj = {
