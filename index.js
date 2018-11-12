@@ -9,7 +9,7 @@ const initServer = () => {
 
   const app = express()
   const routes = require('./routes')
-  const port = 5000
+  const port = 4004
 
   nunjucks.configure('views', {
     autoescape: true,
