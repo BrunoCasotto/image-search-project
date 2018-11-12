@@ -57,6 +57,8 @@
         this.context.drawImage(player, 0, 0, this.snapshotCanvas.width, 
           this.snapshotCanvas.height);
 
+        console.log(this.snapshotCanvas.toDataURL());
+
         this.toggleCanvas()
       }
     }
@@ -87,17 +89,22 @@
       z-index: 10;
       background-repeat: no-repeat;
       background-size: contain;
+      background-color: #ff000000;
       bottom: 20px;
+      background-color: white;
+      border-radius: 15px;
+      border-radius: 15px;
+      box-shadow: 1px 1px 20px 3px white;
 
       &--take {
         transform: translateX(-50%);
         left: 50%;
-        background-image: url('/static/images/take-picture.png');
+        background-image: url('/static/images/take.png');
       }
 
       &--try {
         left: 20px;
-        background-image: url('/static/images/try-again.png');
+        background-image: url('/static/images/retry.png');
       }
 
       &--ok {
