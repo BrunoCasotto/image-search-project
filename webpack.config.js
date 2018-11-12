@@ -14,7 +14,8 @@ module.exports = {
   },
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.js'
+      'vue': 'vue/dist/vue.js',
+      '_components': path.join(__dirname, 'resources', 'components')
     }
   },
   watch: true,

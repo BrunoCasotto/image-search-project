@@ -2,7 +2,7 @@
 
 module.exports = (() => {
   const render = async (request, reply) => {
-    reply.render('index.html');
+    reply.render('./index.html');
   }
 
   return {
