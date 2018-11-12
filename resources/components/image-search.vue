@@ -1,13 +1,15 @@
 <template>
   <div class="image-search">
-    <h1 class="image-search__title"> Buscar </h1>
+    <search-input></search-input>
   </div>
 </template>
 
 <script>
+  import SearchInput from '_components/search-input.vue';
+
   export default {
-    mounted () {
-      console.log('image-search');
+    components: {
+      SearchInput
     }
   }
 </script>
