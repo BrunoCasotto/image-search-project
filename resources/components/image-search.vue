@@ -5,11 +5,11 @@
 </template>
 
 <script>
-export default {
-  mounted () {
-    console.log('image-search');
+  export default {
+    mounted () {
+      console.log('image-search');
+    }
   }
-}
 </script>
 
 <style lang="sass" scoped>

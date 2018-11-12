@@ -29,9 +29,12 @@
   "dependencies": {
     "@google-cloud/automl": "^0.1.2",
     "autoprefixer": "^9.3.1",
+    "css-loader": "^1.0.1",
     "express": "^4.16.4",
     "jquery": "^3.3.1",
     "nunjucks": "^3.1.4",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.1",
     "vue": "^2.5.17",
     "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.17"
