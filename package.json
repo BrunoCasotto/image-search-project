@@ -28,7 +28,11 @@
   "homepage": "https://github.com/BrunoCasotto/elevador-core#readme",
   "dependencies": {
     "@google-cloud/automl": "^0.1.2",
+    "autoprefixer": "^9.3.1",
     "express": "^4.16.4",
-    "nunjucks": "^3.1.4"
+    "jquery": "^3.3.1",
+    "nunjucks": "^3.1.4",
+    "vue": "^2.5.17",
+    "vue-loader": "^15.4.2"
   }
 }
