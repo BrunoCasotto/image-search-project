@@ -51,6 +51,9 @@
         this.context = snapshot.getContext('2d');
         this.snapshotCanvas = document.getElementById('snapshot');
 
+        this.snapshotCanvas.width = this.player.videoWidth;
+        this.snapshotCanvas.height = this.player.videoHeight;
+
         this.context.drawImage(player, 0, 0, this.snapshotCanvas.width, 
           this.snapshotCanvas.height);
 
