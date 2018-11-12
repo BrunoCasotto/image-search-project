@@ -1,13 +1,17 @@
 'use strict'
 
-const path = require('path')
-const webpack = require('webpack')
-require('babel-loader')
+require('babel-loader');
+
+const path = require('path');
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
   entry: {
     "index": path.join(__dirname, 'resources'),
-    "app": path.join(__dirname, 'resources', 'app.js')
+    "app": path.join(__dirname, 'resources', 'app.js'),
+    "style": path.join(__dirname, 'resources', 'styles', 'main.scss'),
   },
   output: {
     filename: "[name].js"
@@ -44,7 +48,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: "style-loader!css-loader!sass-loader"
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ]
       }
     ]
   },
@@ -52,6 +61,10 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery'
+    }),
+    new MiniCssExtractPlugin({
+      filename: "styles/[name].css",
+      chunkFilename: "styles/[id].css"
     })
   ]
 };
