@@ -12,7 +12,8 @@
       return {
         player: null,
         context: null,
-        snapshotCanvas: null
+        snapshotCanvas: null,
+        videoTracks: null
       }
     },
     mounted() {
@@ -23,10 +24,15 @@
         this.player = document.getElementById('player');
         const handleSuccess = (stream) => {
           this.player.srcObject = stream;
+          this.videoTracks = stream.getVideoTracks();
         };
 
         navigator.mediaDevices.getUserMedia({video: true})
           .then(handleSuccess);
+      },
+
+      stopCam() {
+        this.videoTracks.forEach((track) => track.stop());
       },
 
       takePicture() {
@@ -35,6 +41,8 @@
 
         this.context.drawImage(player, 0, 0, this.snapshotCanvas.width, 
           this.snapshotCanvas.height);
+        
+        this.stopCam();
       }
     }
   }
