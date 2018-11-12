@@ -2,17 +2,24 @@
 
 require('babel-loader');
 
+const { getObjectPaths, toObject } = require('./webpack.helpers')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const devMode = process.env.NODE_ENV !== 'production';
+
+const imagePaths  = getObjectPaths(`${__dirname}/resources/**/*.jpg*`);
+const entryImgObj = toObject(imagePaths);
+
+const entryObj = {
+  "index": path.join(__dirname, 'resources'),
+  "app": path.join(__dirname, 'resources', 'app.js'),
+  "style": path.join(__dirname, 'resources', 'styles', 'main.scss')
+}
+
+Object.assign(entryObj, entryImgObj)
 
 module.exports = {
-  entry: {
-    "index": path.join(__dirname, 'resources'),
-    "app": path.join(__dirname, 'resources', 'app.js'),
-    "style": path.join(__dirname, 'resources', 'styles', 'main.scss'),
-  },
+  entry: entryObj,
   output: {
     filename: "[name].js"
   },
@@ -54,6 +61,10 @@ module.exports = {
           'postcss-loader',
           'sass-loader',
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)(\?v=.+)?$/,
+        use: [ {loader: 'file-loader?limit=100000&name=/images/[name].[ext]'} ]
       }
     ]
   },

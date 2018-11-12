@@ -35,6 +35,10 @@
         this.videoTracks.forEach((track) => track.stop());
       },
 
+      playCam() {
+        this.videoTracks.forEach((track) => console.log(track));
+      },
+
       takePicture() {
         this.context = snapshot.getContext('2d');
         this.snapshotCanvas = document.getElementById('snapshot');
@@ -43,6 +47,7 @@
           this.snapshotCanvas.height);
         
         this.stopCam();
+        this.playCam();
       }
     }
   }
