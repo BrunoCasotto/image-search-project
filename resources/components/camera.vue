@@ -45,8 +45,6 @@ import Services from '_resources/services'
     },
     methods: {
       openCam(deviceId) {
-        console.log(deviceId);
-
         this.player = document.getElementById('player');
         const handleSuccess = (stream) => {
           // if (window.webkitURL) { FUTURE
