@@ -49,6 +49,17 @@ import Services from '_resources/services'
 
         this.player = document.getElementById('player');
         const handleSuccess = (stream) => {
+          // if (window.webkitURL) { FUTURE
+          //   video.src = window.webkitURL.createObjectURL(stream);
+          //   localMediaStream = stream;
+          // } else if (video.mozSrcObject !== undefined) {
+          //   video.mozSrcObject = stream;
+          // } else if (video.srcObject !== undefined) {
+          //   video.srcObject = stream;
+          // } else {
+          //   video.src = stream;
+          // }})
+
           this.player.srcObject = stream;
           this.videoTracks = stream.getVideoTracks();
         };
