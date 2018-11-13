@@ -27,6 +27,8 @@
 </template>
 
 <script>
+import Services from '_resources/services'
+
   export default {
     data() {
       return {
@@ -34,7 +36,8 @@
         context: null,
         snapshotCanvas: null,
         videoTracks: null,
-        showCanvas: false
+        showCanvas: false,
+        imgdata: ''
       }
     },
     mounted() {
@@ -53,7 +56,8 @@
       },
 
       savePicture() {
-        console.log('saving...');
+        console.log(this.imgdata)
+        Services.predict(this.imgdata)
       },
 
       stopCam() {
@@ -74,7 +78,7 @@
         this.context.drawImage(player, 0, 0, this.snapshotCanvas.width, 
           this.snapshotCanvas.height);
 
-        console.log(this.snapshotCanvas.toDataURL());
+        this.imgdata = this.snapshotCanvas.toDataURL();
 
         this.toggleCanvas()
       },

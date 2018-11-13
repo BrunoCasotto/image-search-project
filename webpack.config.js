@@ -11,7 +11,6 @@ const imagePaths  = getObjectPaths(`${__dirname}/resources/images/*.**`);
 const entryImgObj = toObject(imagePaths);
 
 const entryObj = {
-  "index": path.join(__dirname, 'resources'),
   "app": path.join(__dirname, 'resources', 'app.js'),
   "style": path.join(__dirname, 'resources', 'styles', 'main.scss')
 }
@@ -26,7 +25,8 @@ module.exports = {
   resolve: {
     alias: {
       'vue': 'vue/dist/vue.js',
-      '_components': path.join(__dirname, 'resources', 'components')
+      '_components': path.join(__dirname, 'resources', 'components'),
+      '_resources': path.join(__dirname, 'resources')
     }
   },
   watch: true,
