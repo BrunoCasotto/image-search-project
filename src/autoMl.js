@@ -1,5 +1,4 @@
 'use strict';
-
 const fs = require('fs');
 const projectId = 'image-222216',
   region = 'us-central1',
@@ -13,7 +12,7 @@ module.exports = (() => {
   const getPathName = () => {
     return predictClient.modelPath(projectId, region, model);
   }
-
+ 
   const getPayload = ({imageBytes}) => {
     return {
       image: {
@@ -22,10 +21,18 @@ module.exports = (() => {
     }
   }
 
+  const normalizeBase64 = (data) => {
+    try {
+      return data.split('data:image/png;base64,')[1];
+    } catch (error) {
+      console.log('error', error)
+      return '';
+    }
+  }
+
   const predict = async (request, reply) => {
     try {
-      const b64String = request.body.image;
-      const imageBytes = Buffer.from(b64String, 'base64');
+      const imageBytes = normalizeBase64(request.body.image);
 
       const name = getPathName();
       const payload = getPayload({imageBytes});

@@ -18,12 +18,10 @@ const initServer = () => {
     path: 'views'
   });
 
-  app.use(bodyParser.json());
-
+  app.use(bodyParser.json({limit: '50mb'}));
   app.use(bodyParser.urlencoded({ extended: true }));
 
   app.use('/static', express.static(`${__dirname}/dist`))
-
   routes(app);
 
   app.listen(port);

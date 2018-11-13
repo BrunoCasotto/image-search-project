@@ -56,7 +56,6 @@ import Services from '_resources/services'
       },
 
       savePicture() {
-        console.log(this.imgdata)
         Services.predict(this.imgdata)
       },
 

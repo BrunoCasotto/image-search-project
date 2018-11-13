@@ -5,7 +5,7 @@ module.exports.predict = (imgBase64) => {
     url: '/predict',
     method: 'POST',
     data: {
-      image: imgBase64 
+      image: imgBase64
     }
   })
 }
