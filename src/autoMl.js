@@ -2,7 +2,7 @@
 const fs = require('fs');
 const projectId = 'image-222216',
   region = 'us-central1',
-  model = 'ICN7434248545826785836';
+  model = 'ICN4066807235321266415';
 
 const { PredictionServiceClient } = require('@google-cloud/automl').v1beta1;
 const predictClient = new PredictionServiceClient();
@@ -35,6 +35,8 @@ module.exports = (() => {
    * @param {array} resArr 
    */
   const generateStringResults = (resArr) => {
+    if(resArr.length === 1) return resArr[0].displayName;
+
     return `${resArr[0].displayName}+${resArr[1].displayName}`;
   }
 

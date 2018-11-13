@@ -41,17 +41,19 @@ import Services from '_resources/services'
       }
     },
     mounted() {
-      this.openCam();
+      Services.getDeviceId(this.openCam)
     },
     methods: {
-      openCam() {
+      openCam(deviceId) {
+        console.log(deviceId);
+
         this.player = document.getElementById('player');
         const handleSuccess = (stream) => {
           this.player.srcObject = stream;
           this.videoTracks = stream.getVideoTracks();
         };
 
-        navigator.mediaDevices.getUserMedia({video: true})
+        navigator.mediaDevices.getUserMedia({video: { deviceId }})
           .then(handleSuccess);
       },
 
