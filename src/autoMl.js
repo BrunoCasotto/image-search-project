@@ -29,7 +29,34 @@ module.exports = (() => {
       return '';
     }
   }
+  
+  /**
+   * function to concat the result to build a query search
+   * @param {array} resArr 
+   */
+  const generateStringResults = (resArr) => {
+    return `${resArr[0].displayName}+${resArr[1].displayName}`;
+  }
 
+  /**
+   * function to sort the api results
+   * @param {object} apiResults 
+   */
+  const createResult = (apiResults) => {
+    const [{payload}] = apiResults;
+
+    payload.sort((res1, res2) => {
+      return res1.classification.score < res2.classification.score;
+    })
+
+    return generateStringResults(payload);
+  }
+
+  /**
+   * function to search image
+   * @param {object} request 
+   * @param {object} reply 
+   */
   const predict = async (request, reply) => {
     try {
       const imageBytes = normalizeBase64(request.body.image);
@@ -37,8 +64,9 @@ module.exports = (() => {
       const name = getPathName();
       const payload = getPayload({imageBytes});
 
-      const responses = await predictClient.predict({ name, payload })
-      reply.send( responses )
+      const responses = await predictClient.predict({ name, payload });
+      const result = createResult(responses);
+      reply.send(result);
 
     } catch (error) {
       console.log('error', error)
