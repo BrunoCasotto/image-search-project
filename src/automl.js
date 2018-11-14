@@ -73,6 +73,8 @@ module.exports = (() => {
       console.log('predict-response', responses);
 
       const result = createResult(responses);
+
+      console.log('predict-result', JSON.stringify(result));
       reply.send(result);
 
     } catch (error) {

@@ -20,16 +20,21 @@
     <button
       class="camera__button camera__button--ok"
       v-bind:class="{'camera__button--active' : showCanvas}"
-      @click="savePicture"
+      @click="predict"
     ></button>
 
   </div>
 </template>
 
 <script>
-import Services from '_resources/services'
+  import Services from '_resources/services';
 
   export default {
+    props: {
+      predict: {
+        type: Function
+      }
+    },
     data() {
       return {
         player: null,
@@ -64,10 +69,6 @@ import Services from '_resources/services'
 
         navigator.mediaDevices.getUserMedia({video: { deviceId }})
           .then(handleSuccess);
-      },
-
-      savePicture() {
-        Services.predict(this.imgdata)
       },
 
       stopCam() {

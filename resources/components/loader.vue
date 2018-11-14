@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay">
+  <div v-if="active" class="overlay">
     <div class="loader">
       <div class="loader-icon"></div>
     </div>
@@ -8,7 +8,12 @@
 
 <script>
   export default {
-
+    props: {
+      active: {
+        type: Boolean,
+        default: false
+      }
+    }
   }
 </script>
 
