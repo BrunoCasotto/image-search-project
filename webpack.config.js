@@ -6,6 +6,8 @@ const { getObjectPaths, toObject } = require('./webpack.helpers')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require('path');
 const webpack = require('webpack');
+const env = process.env.NODE_ENV;
+
 
 const imagePaths  = getObjectPaths(`${__dirname}/resources/images/*.**`);
 const entryImgObj = toObject(imagePaths);
@@ -29,9 +31,9 @@ module.exports = {
       '_resources': path.join(__dirname, 'resources')
     }
   },
-  watch: true,
-  mode: 'development',
-  devtool: 'source-map',
+  watch: env !== 'production' ? true : false,
+  mode: env !== 'production' ? 'development': 'production',
+  devtool: env !== 'production'? 'source-map': false,
   module: {
     rules: [
       {
