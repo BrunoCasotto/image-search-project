@@ -33,69 +33,33 @@
     props: {
       predict: {
         type: Function
-      }
-    },
-    data() {
-      return {
-        player: null,
-        context: null,
-        snapshotCanvas: null,
-        videoTracks: null,
-        showCanvas: false,
-        imgdata: ''
-      }
-    },
-    mounted() {
-      Services.getDeviceId(this.openCam)
-    },
-    methods: {
-      openCam(deviceId) {
-        this.player = document.getElementById('player');
-        const handleSuccess = (stream) => {
-          // if (window.webkitURL) { FUTURE
-          //   video.src = window.webkitURL.createObjectURL(stream);
-          //   localMediaStream = stream;
-          // } else if (video.mozSrcObject !== undefined) {
-          //   video.mozSrcObject = stream;
-          // } else if (video.srcObject !== undefined) {
-          //   video.srcObject = stream;
-          // } else {
-          //   video.src = stream;
-          // }})
-
-          this.player.srcObject = stream;
-          this.videoTracks = stream.getVideoTracks();
-        };
-
-        navigator.mediaDevices.getUserMedia({video: { deviceId }})
-          .then(handleSuccess);
       },
-
-      stopCam() {
-        this.videoTracks.forEach((track) => track.stop());
+      toggleCanvas: {
+        type: Function
       },
-
-      toggleCanvas() {
-        this.showCanvas = !this.showCanvas;
+      uploadFile: {
+        type: Function
       },
-
-      takePicture() {
-        this.context = snapshot.getContext('2d');
-        this.snapshotCanvas = document.getElementById('snapshot');
-
-        this.snapshotCanvas.width = this.player.videoWidth;
-        this.snapshotCanvas.height = this.player.videoHeight;
-
-        this.context.drawImage(player, 0, 0, this.snapshotCanvas.width, 
-          this.snapshotCanvas.height);
-
-        this.imgdata = this.snapshotCanvas.toDataURL();
-
-        this.toggleCanvas()
+      takePicture: {
+        type: Function
       },
-
-      uploadFile() {
-        console.log('upload')
+      player: {
+        type: Object
+      },
+      context: {
+        type: Object
+      },
+      snapshotCanvas: {
+        type: Object
+      },
+      videoTracks: {
+        type: Object
+      },
+      showCanvas: {
+        type: Boolean
+      },
+      imgdata: {
+        type: String
       }
     }
   }
