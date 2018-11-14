@@ -1,5 +1,5 @@
 
-const automl = require('./src/autoMl')
+const automl = require('./src/automl')
 const search = require('./src/search')
 
 module.exports = (app) => {

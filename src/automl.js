@@ -1,8 +1,8 @@
 'use strict';
 const fs = require('fs');
-const projectId = 'image-222216',
-  region = 'us-central1',
-  model = 'ICN4066807235321266415';
+const projectId = process.env.PROJECT_ID || 'image-222216',
+  region = process.env.PROJECT_LOCALE || 'us-central1',
+  model = process.env.MODEL || 'ICN4066807235321266415';
 
 const { PredictionServiceClient } = require('@google-cloud/automl').v1beta1;
 const predictClient = new PredictionServiceClient();
@@ -35,6 +35,8 @@ module.exports = (() => {
    * @param {array} resArr 
    */
   const generateStringResults = (resArr) => {
+    if(!resArr) return '';
+
     if(resArr.length === 1) return resArr[0].displayName;
 
     return `${resArr[0].displayName}+${resArr[1].displayName}`;
@@ -65,8 +67,11 @@ module.exports = (() => {
 
       const name = getPathName();
       const payload = getPayload({imageBytes});
-
+      
+      console.log('predict-send', name);
       const responses = await predictClient.predict({ name, payload });
+      console.log('predict-response', responses);
+
       const result = createResult(responses);
       reply.send(result);
 
