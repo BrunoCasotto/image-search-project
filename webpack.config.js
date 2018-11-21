@@ -28,7 +28,8 @@ module.exports = {
     alias: {
       'vue': 'vue/dist/vue.js',
       '_components': path.join(__dirname, 'resources', 'components'),
-      '_resources': path.join(__dirname, 'resources')
+      '_resources': path.join(__dirname, 'resources'),
+      '_styles': path.join(__dirname, 'resources', 'styles')
     }
   },
   watch: env !== 'production' ? true : false,

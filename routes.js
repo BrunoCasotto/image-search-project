@@ -1,8 +1,9 @@
 
 const automl = require('./src/automl')
-const search = require('./src/search')
+const apiController = require('./src')
 
 module.exports = (app) => {
   app.post('/predict', automl.predict);
-  app.get('/search-image', search.render);
+  app.get('/image-search', apiController.renderSearch);
+  app.get('/', apiController.renderHome);
 }

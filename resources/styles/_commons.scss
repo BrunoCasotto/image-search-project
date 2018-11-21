@@ -1,0 +1,25 @@
+$primary-color: #000001;
+$primary-secondary: #fff;
+
+$primary-font-size: 16px;
+$secondary-font-size: 20px;
+
+.btn {
+  background: $primary-color;
+  padding: 10px 20px;
+  border: none;
+  color: $primary-secondary;
+  font-size: $primary-font-size;
+  text-transform: uppercase;
+  border-radius: 3px;
+  text-decoration: none;
+
+  &:visited, &:active {
+    color: $primary-secondary;
+  }
+}
+
+.title {
+  font-size: $secondary-font-size;
+  font-weight: 100;
+}
