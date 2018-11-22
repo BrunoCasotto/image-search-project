@@ -3,7 +3,7 @@
     <video v-show="!showCanvas" class="camera__video" id="player" autoplay></video>
     <canvas v-show="showCanvas" class="camera__canvas" id="snapshot" width=320 height=240></canvas>
 
-    <button class="camera__button camera__button--upload" @click="uploadFile"></button>
+    <!-- <button class="camera__button camera__button--upload" @click="uploadFile"></button> -->
 
     <button 
       class="camera__button camera__button--take"
