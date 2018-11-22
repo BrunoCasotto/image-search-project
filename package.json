@@ -1,7 +1,7 @@
 {
-  "name": "elevador-core",
+  "name": "image-search-project",
   "version": "1.0.0",
-  "description": "Implementação da lógica de um elevador em javascript",
+  "description": "Um projeto de uma camera html que utiliza o machine learning do google para identificar imagens e redirecionar para sites",
   "main": "src/index.js",
   "devDependencies": {
     "babel-core": "^6.26.3",
