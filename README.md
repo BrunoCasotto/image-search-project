@@ -17,6 +17,8 @@ $ npm run watch [1 tab]
 $ nodemon [2 tab]
 ```
 
+Criar um arquivo config.json na raiz do projeto com as private keys do google automl.
+
 ## To minify files
 ```
 $ npm run build:prod
